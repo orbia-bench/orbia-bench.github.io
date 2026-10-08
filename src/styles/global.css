@@ -146,8 +146,6 @@ p{line-height:1.7}
 .footer-inner>div{display:flex;gap:22px;font-size:14px}
 .footer-inner>div a{text-decoration:none}
 .footer-inner>div a:hover{color:#fff}
-.footer-authors{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
-.footer-authors p{font-size:12px;line-height:1.9;margin:0 0 4px;max-width:1000px}
 
 /* ───────────── Theme overrides for existing interactive components ───────────── */
 body .lb-panel{--lb-border:var(--line);--lb-ink:var(--ink);background:var(--card);border-radius:26px;box-shadow:0 30px 60px -40px rgba(19,35,43,.35)}
@@ -264,3 +262,21 @@ body .mc-modelcard:hover{transform:none;box-shadow:none}
 .site-header.is-dark .nav-lightspeed-color{display:none}
 .site-header.is-dark .nav-lightspeed-white{display:block}
 @media(max-width:520px){.nav-institutions .nav-lightspeed{width:100px;height:32px}}
+
+/* Footer with author list */
+.site-footer{padding:64px 0 28px;background:radial-gradient(120% 140% at 0% 0%,#14232b 0%,var(--night) 55%)}
+.footer-main{display:grid;grid-template-columns:minmax(220px,1fr) 2.6fr;gap:56px;align-items:start}
+.footer-brand p{margin:14px 0 18px;font-size:14px;line-height:1.6;color:rgba(239,231,214,.62);max-width:240px}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px}
+.footer-links a{font-size:13px;text-decoration:none;color:#efe7d6;padding:6px 13px;border:1px solid rgba(255,255,255,.16);border-radius:99px;transition:background .2s,border-color .2s}
+.footer-links a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.32)}
+.footer-authors h2{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:4px 0 18px}
+.footer-names{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;font-size:15.5px;line-height:1.5;color:#efe7d6}
+.footer-names>span{white-space:nowrap}
+.footer-names sup,.footer-affiliations sup{font-size:10px;margin-left:2px;color:var(--teal)}
+.footer-affiliations{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding-top:18px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:rgba(239,231,214,.66)}
+.footer-affiliations sup{margin:0 3px 0 0}
+.footer-note{margin:12px 0 0;font-size:12px;color:rgba(239,231,214,.45)}
+.footer-bottom{display:flex;justify-content:space-between;margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);font-size:12px;color:rgba(239,231,214,.4)}
+.footer-bottom a{text-decoration:none}.footer-bottom a:hover{color:#fff}
+@media(max-width:800px){.footer-main{grid-template-columns:1fr;gap:36px}.footer-names{font-size:14px;gap:6px 16px}}

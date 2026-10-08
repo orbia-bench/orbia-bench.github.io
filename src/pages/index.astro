@@ -160,17 +160,24 @@ const findings = [
           </div>
         </section>
 
-        <section class="block authors-end" aria-labelledby="authors-title">
-          <div class="content-width">
-            <h2 id="authors-title">Authors</h2>
-            <p class="authors-end-names">{paper.authors.map(author => <span>{author.name}<sup>{author.affiliations.join(',')}{author.equal ? '*' : ''}{author.corresponding ? '†' : ''}</sup></span>)}</p>
-            <div class="authors-end-affiliations">{paper.affiliations.map(affiliation => <span><sup>{affiliation.id}</sup> {affiliation.name}</span>)}</div>
-            <p class="authors-end-note">* Equal contribution · † Corresponding authors</p>
-          </div>
-        </section>
       </div>
     </main>
-    <footer class="site-footer"><div class="content-width footer-inner"><a class="wordmark footer-logo" href="#home"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-35 16 16)"/><circle cx="16" cy="16" r="7"/><circle class="dot" cx="27" cy="8" r="2.1"/></svg>ORBIA</a><p>Exploring the consistency of generated worlds.</p><div><a href={asset(paper.paperPath)} target="_blank" rel="noreferrer">Paper</a><a href={paper.datasetUrl} target="_blank" rel="noreferrer">Dataset</a><a href="#paper">Citation</a></div></div></footer>
+    <footer class="site-footer">
+      <div class="content-width footer-main">
+        <div class="footer-brand">
+          <a class="wordmark footer-logo" href="#home"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-35 16 16)"/><circle cx="16" cy="16" r="7"/><circle class="dot" cx="27" cy="8" r="2.1"/></svg>ORBIA</a>
+          <p>Do generated videos form a consistent 3D world?</p>
+          <div class="footer-links"><a href={asset(paper.paperPath)} target="_blank" rel="noreferrer">Paper</a><a href={paper.datasetUrl} target="_blank" rel="noreferrer">Dataset</a>{paper.codeUrl && <a href={paper.codeUrl} target="_blank" rel="noreferrer">Code</a>}<a href="#paper">Citation</a></div>
+        </div>
+        <div class="footer-authors" aria-labelledby="authors-title">
+          <h2 id="authors-title">Authors</h2>
+          <p class="footer-names">{paper.authors.map(author => <span>{author.name}<sup>{author.affiliations.join(',')}{author.equal ? '*' : ''}{author.corresponding ? '†' : ''}</sup></span>)}</p>
+          <p class="footer-affiliations">{paper.affiliations.map(affiliation => <span><sup>{affiliation.id}</sup>{affiliation.name}</span>)}</p>
+          <p class="footer-note">* Equal contribution &nbsp;·&nbsp; † Corresponding authors</p>
+        </div>
+      </div>
+      <div class="content-width footer-bottom"><span>© 2026 ORBIA authors</span><a href="#home">Back to top ↑</a></div>
+    </footer>
     <script>
       // Reveal-on-scroll, count-up stats, and header theme (dark over hero/gallery, light elsewhere).
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
