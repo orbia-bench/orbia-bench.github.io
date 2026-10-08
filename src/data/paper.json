@@ -1,0 +1,228 @@
+{
+  "title": "Orbia: Do Generated Videos Form a Consistent 3D World?",
+  "abstract": "Video generators serve as interactive worlds for exploration and simulation, yet realistic and visually appealing frames do not necessarily depict a consistent 3D world. Existing benchmarks assess selected geometric properties or use vision-language models to judge memory and consistency, leaving systematic 3D evaluation underexplored. We introduce Orbia, the first benchmark dedicated to a systematic and comprehensive evaluation of 3D consistency in interactive world models. Through controlled exploration and revisit, we organize the evaluation into three dimensions: input preservation, generated-content persistence, and 3D self-consistency. For input preservation, registered RGB-D references and annotated anchors support appearance, geometry, and spatial stability measurements. For generated-content persistence, we compare revisits to regions absent from the input image with their first generated observations to test whether models preserve what they create. For 3D self-consistency, cross-view depth and feature correspondence, regional scale agreement, and held-out Gaussian rendering test whether generated views describe the same 3D scene. Minute-long exploration and revisits further test long-term consistency. Our construction and annotation pipeline brings together public datasets, self-captured scenes, and simulation, yielding 720 instances across indoor and outdoor environments and six exploration-and-revisit protocols. Evaluation spans 27 text-, action-, and camera-conditioned models through native-interface adapters. Orbia provides a systematic basis for diagnosing 3D inconsistency and developing more persistent video world models.",
+  "authors": [
+    {
+      "name": "Dongyue Lu",
+      "affiliations": [
+        1
+      ],
+      "equal": true,
+      "corresponding": false
+    },
+    {
+      "name": "Guian Fang",
+      "affiliations": [
+        1
+      ],
+      "equal": true,
+      "corresponding": false
+    },
+    {
+      "name": "Hur Lim",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Yonggang Wu",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Yanrong Wang",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Hongshan Chen",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Shengju Qian",
+      "affiliations": [
+        2
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Yue Liao",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Wei Chow",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Lingdong Kong",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Tianxin Huang",
+      "affiliations": [
+        3
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Yu Yang",
+      "affiliations": [
+        4
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Hongji Yang",
+      "affiliations": [
+        5
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Junchao Huang",
+      "affiliations": [
+        6
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Alan Liang",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Yihao Wang",
+      "affiliations": [
+        7
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Zihan Wang",
+      "affiliations": [
+        7
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Rong Li",
+      "affiliations": [
+        8
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Hanlin Chen",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Xin Wang",
+      "affiliations": [
+        2
+      ],
+      "equal": false,
+      "corresponding": false
+    },
+    {
+      "name": "Wei Tsang Ooi",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": true
+    },
+    {
+      "name": "Mike Zheng Shou",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": true
+    },
+    {
+      "name": "Shuicheng Yan",
+      "affiliations": [
+        1
+      ],
+      "equal": false,
+      "corresponding": true
+    }
+  ],
+  "affiliations": [
+    {
+      "id": 1,
+      "name": "NUS"
+    },
+    {
+      "id": 2,
+      "name": "LIGHTSPEED"
+    },
+    {
+      "id": 3,
+      "name": "HKU"
+    },
+    {
+      "id": 4,
+      "name": "ZJU"
+    },
+    {
+      "id": 5,
+      "name": "University of Macau"
+    },
+    {
+      "id": 6,
+      "name": "CUHK(SZ)"
+    },
+    {
+      "id": 7,
+      "name": "Aalto University"
+    },
+    {
+      "id": 8,
+      "name": "HKUST(GZ)"
+    }
+  ],
+  "datasetUrl": "https://huggingface.co/datasets/Orbia/Orbia",
+  "paperPath": "paper/orbia.pdf",
+  "codeUrl": "https://github.com/worldbench/orbia",
+  "bibtex": "@misc{lu_orbia,\n  title = {Orbia: Do Generated Videos Form a Consistent 3D World?},\n  author = {Dongyue Lu and Guian Fang and Hur Lim and Yonggang Wu and Yanrong Wang and Hongshan Chen and Shengju Qian and Yue Liao and Wei Chow and Lingdong Kong and Tianxin Huang and Yu Yang and Hongji Yang and Junchao Huang and Alan Liang and Yihao Wang and Zihan Wang and Rong Li and Hanlin Chen and Xin Wang and Wei Tsang Ooi and Mike Zheng Shou and Shuicheng Yan},\n  note = {ORBIA benchmark manuscript}\n}"
+}

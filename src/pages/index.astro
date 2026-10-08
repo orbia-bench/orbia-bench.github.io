@@ -1,0 +1,197 @@
+---
+import '../styles/global.css';
+import Hero from '../components/Hero';
+import EvaluationTeaser from '../components/EvaluationTeaser';
+import Protocols from '../components/Protocols';
+import Leaderboard from '../components/Leaderboard';
+import MetricComparison from '../components/MetricComparison';
+import Gallery from '../components/Gallery';
+import Citation from '../components/Citation';
+import { ConstructionPipeline } from '../components/BenchmarkMethods';
+import OverviewStats from '../components/OverviewStats';
+import type { ComponentProps } from 'react';
+import paper from '../data/paper.json';
+import rows from '../data/leaderboard.json';
+import mediaData from '../data/media.json';
+import { asset } from '../lib/assets';
+import mulishFontUrl from '../assets/Mulish-Variable.woff2?url';
+
+const publicUrl = (path: string) => Astro.site ? new URL(asset(path), Astro.site).href : asset(path);
+const pageUrl = Astro.site ? new URL(import.meta.env.BASE_URL, Astro.site).href : import.meta.env.BASE_URL;
+const articleId = `${pageUrl}#paper`;
+const leaderboardRows = rows as ComponentProps<typeof Leaderboard>['rows'];
+const comparisonCases = mediaData.comparisons as ComponentProps<typeof MetricComparison>['cases'];
+const heroMosaic = mediaData.heroMosaic;
+const favicon = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#183745"/><g fill="none" stroke="#fff" stroke-width="1.2"><circle cx="16" cy="16" r="7"/><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-35 16 16)"/></g><circle cx="27" cy="8" r="2" fill="#76c5b5"/></svg>');
+const authorSchema = paper.authors.map(author => ({
+  '@type': 'Person', name: author.name,
+  affiliation: author.affiliations.map(id => ({ '@type': 'Organization', name: paper.affiliations.find(item => item.id === id)?.name })).filter(item => item.name),
+}));
+const articleSchema = { '@context': 'https://schema.org', '@type': 'ScholarlyArticle', '@id': articleId, url: pageUrl, headline: paper.title, abstract: paper.abstract, author: authorSchema, about: ['World models', '3D consistency', 'Video generation'], associatedMedia: { '@type': 'MediaObject', encodingFormat: 'application/pdf', contentUrl: publicUrl(paper.paperPath) }, isBasedOn: { '@type': 'Dataset', '@id': paper.datasetUrl, name: 'ORBIA', url: paper.datasetUrl } };
+const datasetSchema = { '@context': 'https://schema.org', '@type': 'Dataset', '@id': paper.datasetUrl, name: 'ORBIA', description: '720 exploration-and-revisit cases for evaluating 3D consistency in world models and video generators, spanning six trajectory protocols.', url: paper.datasetUrl, creator: authorSchema, isBasedOn: { '@id': articleId }, keywords: ['3D consistency', 'World models', 'Benchmark', 'Video generation'] };
+const findings = [
+  { title: 'Performance varies across evaluation tiers', body: 'SolarWM-H3 leads overall, but no model leads every tier.' },
+  { title: 'Visual quality and 3D consistency', body: 'Beautiful frames can still describe an inconsistent 3D world.' },
+  { title: 'Camera control and geometric consistency', body: 'Following the camera path and maintaining coherent geometry are distinct abilities.' },
+  { title: 'Preserving input and generated content', body: 'Recovering the starting scene does not guarantee remembering newly generated content.' },
+  { title: 'Consistency during extended exploration', body: 'Extended exploration weakens both memory and camera control.' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c1418" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <title>{paper.title}</title>
+    <meta name="description" content="Can generated worlds stay consistent as we explore and revisit them? ORBIA evaluates 27 models with 720 cases, six exploration protocols, and three dimensions of 3D consistency." />
+    <meta name="citation_title" content={paper.title} />
+    {paper.authors.map(author => <meta name="citation_author" content={author.name} />)}
+    <meta name="citation_pdf_url" content={publicUrl(paper.paperPath)} />
+    <meta name="DC.title" content={paper.title} />
+    {paper.authors.map(author => <meta name="DC.creator" content={author.name} />)}
+    <meta name="DC.description" content={paper.abstract} />
+    <meta name="DC.language" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={paper.title} />
+    <meta property="og:description" content="A benchmark for 3D consistency in world models: explore a scene, return to it, and test what the model remembers." />
+    {mediaData.hero[0] && <meta property="og:image" content={publicUrl(mediaData.hero[0].poster)} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={paper.title} />
+    <meta name="twitter:description" content="720 cases. Six exploration protocols. Three dimensions of 3D consistency." />
+    {mediaData.hero[0] && <meta name="twitter:image" content={publicUrl(mediaData.hero[0].poster)} />}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" />
+    <link rel="preload" href={mulishFontUrl} as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/</g, '\\u003c')} />
+    <script type="application/ld+json" set:html={JSON.stringify(datasetSchema).replace(/</g, '\\u003c')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="site-header">
+      <a class="wordmark" href="#home" aria-label="ORBIA home"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-35 16 16)"/><circle cx="16" cy="16" r="7"/><circle class="dot" cx="27" cy="8" r="2.1"/></svg>ORBIA</a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#evaluation">Evaluation</a><a href="#protocols">Protocols</a><a href="#leaderboard">Leaderboard</a><a href="#findings">Findings</a><a href="#comparison">Comparisons</a><a href="#gallery">Gallery</a>
+      </nav>
+      <div class="nav-institutions" aria-label="National University of Singapore and LIGHTSPEED"><span class="nav-nus"><img src={asset('assets/nus.png')} alt="National University of Singapore" /><img class="nav-nus-wordmark" src={asset('assets/nus.png')} alt="" aria-hidden="true" /></span><span aria-hidden="true"></span><span class="nav-lightspeed" aria-label="LIGHTSPEED"><img class="nav-lightspeed-color" src={asset('assets/lightspeed.svg')} alt="LIGHTSPEED" /><img class="nav-lightspeed-white" src={asset('assets/lightspeed-white.svg')} alt="" aria-hidden="true" /></span></div>
+    </header>
+    <main id="main">
+      <div id="home"><Hero items={mediaData.hero} mosaic={heroMosaic} title={paper.title} paperUrl={asset(paper.paperPath)} datasetUrl={paper.datasetUrl} codeUrl={paper.codeUrl} client:load /></div>
+
+      <div class="paper-body">
+        <section id="overview" class="block content-width">
+          <div class="head-row reveal">
+            <div><h2>Overview</h2></div>
+            <div><p class="lead">ORBIA evaluates whether generated videos form a consistent 3D world by testing preservation of the input scene, persistence of newly generated content, and agreement across views during exploration and revisit.</p></div>
+          </div>
+          <div class="reveal"><OverviewStats rows={leaderboardRows} client:visible /></div>
+        </section>
+
+        <section id="evaluation" class="block band">
+          <div class="wide-width">
+            <div class="head-row reveal">
+              <div><h2>Evaluating 3D consistency</h2></div>
+              <p>Each case starts at <span class="pose">P<sub>0</sub></span>, passes a cross-view query <span class="pose">P<sub>q</sub></span>, discovers a new region, revisits it after exploring elsewhere, and returns to the exact starting pose <span class="pose">P<sub>r</sub></span>.</p>
+            </div>
+            <EvaluationTeaser client:visible />
+          </div>
+        </section>
+
+        <section id="protocols" class="block">
+          <div class="wide-width">
+            <div class="head-row reveal">
+              <div><h2>Exploration and revisit protocols</h2></div>
+              <p>Every template starts at <span class="pose">P<sub>0</sub></span> and returns to the same pose at <span class="pose">P<sub>r</sub></span>. They differ in parallax, viewing direction, and how far the camera wanders before coming back.</p>
+            </div>
+            <Protocols client:visible />
+          </div>
+        </section>
+
+        <section id="leaderboard" class="block">
+          <div class="content-width">
+            <div class="head-row reveal">
+              <div><h2>Leaderboard</h2></div>
+              <p>Results for 27 models across control, visual quality, three dimensions of 3D consistency, and temporal stability.</p>
+            </div>
+            <Leaderboard rows={leaderboardRows} client:visible />
+          </div>
+        </section>
+
+        <section id="findings" class="block findings-section">
+          <div class="content-width">
+            <div class="findings-heading reveal"><h2>Key findings</h2></div>
+            <div class="findings-list">
+              {findings.map(finding => <article class="finding-brief reveal"><h3>{finding.title}</h3><p>{finding.body}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section id="comparison" class="block band">
+          <div class="wide-width">
+            <div class="head-row reveal">
+              <div><h2>Model comparisons</h2></div>
+              <p>Compare models given the same input and requested trajectory, with synchronized playback and registered evaluation events.</p>
+            </div>
+            <MetricComparison cases={comparisonCases} rows={rows} client:visible />
+          </div>
+        </section>
+
+        <section id="construction" class="block bm-section">
+          <div class="content-width">
+            <div class="bm-heading"><h2>Dataset construction</h2><p>Each case combines registered reference views, verified landmarks and a trajectory designed for exploration and revisit.</p></div>
+            <ConstructionPipeline client:visible />
+          </div>
+        </section>
+
+        <section id="gallery" class="block dark-section">
+          <div class="wide-width">
+            <div class="head-row reveal">
+              <div><h2>Test case gallery</h2></div>
+              <p>Open a scene to inspect its input and query RGB images and registered depth.</p>
+            </div>
+            <Gallery items={mediaData.gallery} client:visible />
+          </div>
+        </section>
+
+        <section id="paper" class="block">
+          <div class="content-width">
+            <div class="citation-heading reveal"><h2>Citation</h2></div>
+            <div class="citation-area reveal"><Citation bibtex={paper.bibtex} client:visible /></div>
+          </div>
+        </section>
+
+        <section class="block authors-end" aria-labelledby="authors-title">
+          <div class="content-width">
+            <h2 id="authors-title">Authors</h2>
+            <p class="authors-end-names">{paper.authors.map(author => <span>{author.name}<sup>{author.affiliations.join(',')}{author.equal ? '*' : ''}{author.corresponding ? '†' : ''}</sup></span>)}</p>
+            <div class="authors-end-affiliations">{paper.affiliations.map(affiliation => <span><sup>{affiliation.id}</sup> {affiliation.name}</span>)}</div>
+            <p class="authors-end-note">* Equal contribution · † Corresponding authors</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="content-width footer-inner"><a class="wordmark footer-logo" href="#home"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-35 16 16)"/><circle cx="16" cy="16" r="7"/><circle class="dot" cx="27" cy="8" r="2.1"/></svg>ORBIA</a><p>Exploring the consistency of generated worlds.</p><div><a href={asset(paper.paperPath)} target="_blank" rel="noreferrer">Paper</a><a href={paper.datasetUrl} target="_blank" rel="noreferrer">Dataset</a><a href="#paper">Citation</a></div></div></footer>
+    <script>
+      // Reveal-on-scroll, count-up stats, and header theme (dark over hero/gallery, light elsewhere).
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reveal = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); reveal.unobserve(entry.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => reduce ? el.classList.add('in') : reveal.observe(el));
+      const counter = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (!entry.isIntersecting) return; counter.unobserve(entry.target);
+        const el = entry.target as HTMLElement, end = Number(el.dataset.count), t0 = performance.now(), dur = 1400;
+        if (reduce) return;
+        const tick = (now: number) => { const u = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - u, 3); el.textContent = String(Math.round(end * e)); if (u < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }), { threshold: 0.6 });
+      document.querySelectorAll('[data-count]').forEach(el => counter.observe(el));
+      const header = document.getElementById('site-header')!, hero = document.getElementById('home')!, gallery = document.getElementById('gallery')!;
+      const onScroll = () => {
+        const overHero = window.scrollY < hero.offsetHeight - 70;
+        const g = gallery.getBoundingClientRect(), overGallery = g.top <= 66 && g.bottom > 64;
+        header.classList.toggle('is-dark', overHero || overGallery);
+        header.classList.toggle('is-top', window.scrollY < 10);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    </script>
+  </body>
+</html>

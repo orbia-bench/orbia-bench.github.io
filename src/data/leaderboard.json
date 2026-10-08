@@ -1,0 +1,488 @@
+[
+  {
+    "id": "solarwm-h3-ema-step-003900",
+    "name": "SolarWM-H3",
+    "group": "world",
+    "interface": "Camera",
+    "size": "33",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      79.93,
+      74.76,
+      69.26,
+      70.28,
+      68.84,
+      84.05
+    ],
+    "overall": 76.32
+  },
+  {
+    "id": "lyra2-dmd",
+    "name": "Lyra2",
+    "group": "world",
+    "interface": "Camera",
+    "size": "14",
+    "steps": "4",
+    "representation": true,
+    "scores": [
+      81.64,
+      71.37,
+      68.79,
+      70.25,
+      61.51,
+      82.31
+    ],
+    "overall": 74.77
+  },
+  {
+    "id": "evoke-stage3-post-distillation",
+    "name": "EVOKE",
+    "group": "world",
+    "interface": "Camera",
+    "size": "14",
+    "steps": "3",
+    "representation": true,
+    "scores": [
+      66.47,
+      76.48,
+      68.81,
+      66.43,
+      68.02,
+      83.18
+    ],
+    "overall": 72.7
+  },
+  {
+    "id": "echo-wm",
+    "name": "Echo-WM",
+    "group": "world",
+    "interface": "Camera",
+    "size": "22",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      70.74,
+      75.02,
+      65.91,
+      61.42,
+      65.26,
+      82.69
+    ],
+    "overall": 72.24
+  },
+  {
+    "id": "gen3c",
+    "name": "Gen3C",
+    "group": "world",
+    "interface": "Camera",
+    "size": "7",
+    "steps": "35",
+    "representation": true,
+    "scores": [
+      75.51,
+      67.55,
+      75.23,
+      68.58,
+      60.16,
+      78.96
+    ],
+    "overall": 71.95
+  },
+  {
+    "id": "mg3.5",
+    "name": "Matrix game 3.5",
+    "group": "world",
+    "interface": "Camera",
+    "size": "5",
+    "steps": "3",
+    "representation": true,
+    "scores": [
+      64.18,
+      74.03,
+      66.93,
+      60.82,
+      54.61,
+      76.41
+    ],
+    "overall": 68.07
+  },
+  {
+    "id": "alayaworld-v1.1-stage3",
+    "name": "AlayaWorld",
+    "group": "world",
+    "interface": "Camera",
+    "size": "15",
+    "steps": "4",
+    "representation": true,
+    "scores": [
+      61.68,
+      71.04,
+      70.17,
+      56.62,
+      58.92,
+      76.31
+    ],
+    "overall": 67.01
+  },
+  {
+    "id": "genie3",
+    "name": "Genie3",
+    "group": "world",
+    "interface": "Action",
+    "size": "--",
+    "steps": "--",
+    "representation": null,
+    "scores": [
+      55.26,
+      74.43,
+      61.01,
+      54.41,
+      61.25,
+      83.15
+    ],
+    "overall": 66.72
+  },
+  {
+    "id": "lingbotv2",
+    "name": "LingBot-World v2",
+    "group": "world",
+    "interface": "Camera",
+    "size": "14",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      58.48,
+      75.34,
+      61.54,
+      52.0,
+      57.11,
+      77.28
+    ],
+    "overall": 65.98
+  },
+  {
+    "id": "hy-worldplay",
+    "name": "HY-WorldPlay",
+    "group": "world",
+    "interface": "Camera",
+    "size": "8",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      45.26,
+      72.06,
+      66.84,
+      69.84,
+      70.34,
+      77.32
+    ],
+    "overall": 65.5
+  },
+  {
+    "id": "sana-wm-streaming",
+    "name": "SANA-WM",
+    "group": "world",
+    "interface": "Camera",
+    "size": "2.6",
+    "steps": "4+3",
+    "representation": false,
+    "scores": [
+      59.39,
+      73.22,
+      63.19,
+      51.95,
+      54.1,
+      75.03
+    ],
+    "overall": 65.08
+  },
+  {
+    "id": "happyoyster",
+    "name": "HappyOyster",
+    "group": "world",
+    "interface": "Action",
+    "size": "--",
+    "steps": "--",
+    "representation": null,
+    "scores": [
+      60.49,
+      68.78,
+      58.23,
+      46.31,
+      59.17,
+      78.25
+    ],
+    "overall": 64.34
+  },
+  {
+    "id": "cosmos3-nano",
+    "name": "Cosmos3-Nano",
+    "group": "world",
+    "interface": "Camera",
+    "size": "16",
+    "steps": "30",
+    "representation": false,
+    "scores": [
+      35.7,
+      74.25,
+      66.78,
+      66.29,
+      70.1,
+      74.71
+    ],
+    "overall": 62.75
+  },
+  {
+    "id": "lingbot-v1-fast",
+    "name": "LingBot-World v1",
+    "group": "world",
+    "interface": "Camera",
+    "size": "14",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      49.12,
+      73.84,
+      59.56,
+      50.71,
+      58.93,
+      75.37
+    ],
+    "overall": 62.73
+  },
+  {
+    "id": "voyager",
+    "name": "Voyager",
+    "group": "world",
+    "interface": "Camera",
+    "size": "13",
+    "steps": "50",
+    "representation": true,
+    "scores": [
+      60.92,
+      68.05,
+      58.65,
+      43.72,
+      46.32,
+      78.04
+    ],
+    "overall": 62.72
+  },
+  {
+    "id": "dreamx-world-5b-ar",
+    "name": "DreamX-World",
+    "group": "world",
+    "interface": "Camera",
+    "size": "5",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      48.99,
+      74.96,
+      60.96,
+      48.7,
+      48.73,
+      74.82
+    ],
+    "overall": 61.79
+  },
+  {
+    "id": "fantasyworld",
+    "name": "FantasyWorld",
+    "group": "world",
+    "interface": "Camera",
+    "size": "14",
+    "steps": "50",
+    "representation": true,
+    "scores": [
+      39.16,
+      70.7,
+      63.08,
+      60.17,
+      63.53,
+      72.51
+    ],
+    "overall": 60.64
+  },
+  {
+    "id": "abot-world",
+    "name": "ABot-World",
+    "group": "world",
+    "interface": "Action",
+    "size": "5",
+    "steps": "4",
+    "representation": false,
+    "scores": [
+      47.06,
+      66.97,
+      57.47,
+      45.22,
+      48.32,
+      76.32
+    ],
+    "overall": 58.87
+  },
+  {
+    "id": "astra",
+    "name": "Astra",
+    "group": "world",
+    "interface": "Camera",
+    "size": "1.3",
+    "steps": "50",
+    "representation": false,
+    "scores": [
+      28.45,
+      61.3,
+      59.38,
+      44.74,
+      59.91,
+      67.31
+    ],
+    "overall": 52.3
+  },
+  {
+    "id": "seedance2.5",
+    "name": "Seedance2.5",
+    "group": "video",
+    "interface": "Text",
+    "size": "--",
+    "steps": "--",
+    "representation": null,
+    "scores": [
+      43.23,
+      76.97,
+      72.84,
+      67.7,
+      72.54,
+      80.39
+    ],
+    "overall": 67.44
+  },
+  {
+    "id": "kling3.0",
+    "name": "Kling3.0",
+    "group": "video",
+    "interface": "Text",
+    "size": "--",
+    "steps": "--",
+    "representation": null,
+    "scores": [
+      38.58,
+      77.38,
+      69.14,
+      63.32,
+      71.3,
+      79.3
+    ],
+    "overall": 65.23
+  },
+  {
+    "id": "cosmos3-super-4step",
+    "name": "Cosmos3-Super",
+    "group": "video",
+    "interface": "Text",
+    "size": "64",
+    "steps": "4",
+    "representation": null,
+    "scores": [
+      27.92,
+      79.04,
+      66.04,
+      69.75,
+      74.55,
+      79.73
+    ],
+    "overall": 63.72
+  },
+  {
+    "id": "hunyuanvideo1.5",
+    "name": "HunyuanVideo1.5",
+    "group": "video",
+    "interface": "Text",
+    "size": "8.3",
+    "steps": "12",
+    "representation": false,
+    "scores": [
+      36.09,
+      77.07,
+      63.12,
+      57.44,
+      71.31,
+      78.96
+    ],
+    "overall": 63.27
+  },
+  {
+    "id": "minimax-h3-base",
+    "name": "MiniMax-H3",
+    "group": "video",
+    "interface": "Text",
+    "size": "33",
+    "steps": "50",
+    "representation": null,
+    "scores": [
+      32.48,
+      78.09,
+      63.36,
+      55.79,
+      69.42,
+      77.51
+    ],
+    "overall": 62.0
+  },
+  {
+    "id": "ltx2.5",
+    "name": "LTX2.5",
+    "group": "video",
+    "interface": "Text",
+    "size": "22",
+    "steps": "8+3",
+    "representation": null,
+    "scores": [
+      26.51,
+      77.96,
+      64.81,
+      60.25,
+      71.64,
+      77.3
+    ],
+    "overall": 61.25
+  },
+  {
+    "id": "wan2.7",
+    "name": "Wan2.7",
+    "group": "video",
+    "interface": "Text",
+    "size": "--",
+    "steps": "--",
+    "representation": null,
+    "scores": [
+      31.31,
+      76.46,
+      65.96,
+      54.35,
+      64.19,
+      75.79
+    ],
+    "overall": 60.55
+  },
+  {
+    "id": "longcat",
+    "name": "LongCat",
+    "group": "video",
+    "interface": "Text",
+    "size": "13.6",
+    "steps": "16",
+    "representation": false,
+    "scores": [
+      23.76,
+      77.3,
+      58.89,
+      47.77,
+      64.11,
+      74.22
+    ],
+    "overall": 57.18
+  }
+]
