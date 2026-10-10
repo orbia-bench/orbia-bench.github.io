@@ -3,10 +3,10 @@ import { asset } from '../lib/assets';
 import './BenchmarkMethods.css';
 
 const stages = [
-  {title:'Reference selection', text:'Registered depth and camera poses identify input–query pairs that satisfy the motion constraints of each trajectory template.'},
-  {title:'Anchor verification', text:'VLM proposals, segmentation and tracking identify the same landmark in both views. Depth reprojection verifies which surfaces are shared.'},
-  {title:'Trajectory synthesis', text:'Trajectories connect the reference poses and return to the start. Geometry checks and separated revisits establish where newly generated content can be evaluated.'},
-  {title:'Quality review', text:'Automatic quality ranking guides human review of images, masks, trajectories and revisit regions. Reviewers correct or reject cases before captioning and export.'},
+  {title:'Reference selection', text:'Registered depth and poses select input–query pairs for each trajectory template.'},
+  {title:'Anchor verification', text:'Segmentation and tracking find the same landmark in both views, and depth confirms shared surfaces.'},
+  {title:'Trajectory synthesis', text:'Paths link the reference poses, return to the start, and place revisits of new regions.'},
+  {title:'Quality review', text:'Automatic scores guide human reviewers, who fix or reject cases before captioning.'},
 ];
 const STEP_MS = 8500;
 const img = (name: string) => asset(`assets/construction/${name}.webp`);

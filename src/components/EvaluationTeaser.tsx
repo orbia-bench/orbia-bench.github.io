@@ -15,24 +15,24 @@ import './EvaluationTeaser.css';
 const STAGE_W = 1600, STAGE_H = 900;
 // Full-bleed: the scene covers the stage; the top (sky) is cropped so the route and bench stay in view.
 const SCENE = { src: 'media/teaser/scene-original.webp', w: 1554, h: 995, x: 0, y: -125, scale: 1.08 };
-const CARD_W = 280;
+const CARD_W = 336;
 const GOLD = '#d9a12a', TEAL = '#1f9e8f', BLUE = '#2f74c0';
 
 const ROUTE: [number, number][] = [[359.8,919.3],[277.3,809.7],[261.4,733.1],[286,673.1],[312.2,646.6],[350,581.2],[385.1,524.1],[381.1,481.4],[404,453.9],[443,440.5],[493.3,446.5],[533.9,465.3],[567,525.4],[602,614.4],[650.7,715],[669.7,809.4],[638.3,887.7],[556.9,922.1],[447.6,930],[359.8,919.3]];
 const BENCH = 'M1006 842 L1100 828 L1440 990 L1215 995 L1005 852 Z';
 const BRIDGE = 'M528 235 L1052 240 L1086 352 L1030 356 L1020 580 L890 580 L650 500 L560 470 L540 356 L522 352 Z';
-const BENCH_POINT: [number, number] = [1150, 905];
+const BENCH_POINT: [number, number] = [1150, 1060];
 const BRIDGE_POINT: [number, number] = [800, 400];
 
 type Layer = 'rgb' | 'depth' | 'mask';
 type NodeDef = { id: string; color: string; pt: [number, number]; cone: number | null; label: string; sub: string; text: string;
   layers: Layer[]; slot: { side: 'left' | 'right'; top: number }; focus: 'bench' | 'bridge' | 'none' };
 const NODES: NodeDef[] = [
-  { id: 'input', color: GOLD, pt: [359.8, 919.3], cone: 0, label: 'Input P_0', sub: 'Reference view', text: 'The given image. Its registered depth and anchor mask are the ground truth.', layers: ['rgb', 'depth', 'mask'], slot: { side: 'left', top: 540 }, focus: 'bench' },
+  { id: 'input', color: GOLD, pt: [359.8, 919.3], cone: 0, label: 'Input P_0', sub: 'Reference view', text: 'The given image. Its registered depth and anchor mask are the ground truth.', layers: ['rgb', 'depth', 'mask'], slot: { side: 'left', top: 515 }, focus: 'bench' },
   { id: 'query', color: GOLD, pt: [312.2, 646.6], cone: 0, label: 'Query P_q', sub: 'Cross-view check', text: 'A new viewpoint on input-visible surfaces, compared with the registered RGB-D and anchors.', layers: ['rgb', 'depth', 'mask'], slot: { side: 'left', top: 110 }, focus: 'bench' },
   { id: 'first', color: TEAL, pt: [381.1, 481.4], cone: 0, label: 'First visit P_first', sub: 'New region', text: 'A region outside the input view. The first generated observation becomes its reference.', layers: ['rgb', 'depth'], slot: { side: 'right', top: 120 }, focus: 'bridge' },
-  { id: 'revisit', color: TEAL, pt: [533.9, 465.3], cone: 0, label: 'Revisit P_revisit', sub: 'Same region again', text: 'After exploring elsewhere, the same region should look and measure the same.', layers: ['rgb', 'depth'], slot: { side: 'right', top: 520 }, focus: 'bridge' },
-  { id: 'return', color: GOLD, pt: [359.8, 919.3], cone: null, label: 'Return P_r', sub: 'Same pose as P_0', text: 'Back at the start: the view should match the input image and its depth.', layers: ['rgb', 'depth', 'mask'], slot: { side: 'left', top: 540 }, focus: 'bench' },
+  { id: 'revisit', color: TEAL, pt: [533.9, 465.3], cone: 0, label: 'Revisit P_revisit', sub: 'Same region again', text: 'After exploring elsewhere, the same region should look and measure the same.', layers: ['rgb', 'depth'], slot: { side: 'right', top: 505 }, focus: 'bridge' },
+  { id: 'return', color: GOLD, pt: [359.8, 919.3], cone: null, label: 'Return P_r', sub: 'Same pose as P_0', text: 'Back at the start: the view should match the input image and its depth.', layers: ['rgb', 'depth', 'mask'], slot: { side: 'left', top: 515 }, focus: 'bench' },
   { id: '3d', color: BLUE, pt: [550, 670], cone: null, label: '3D self-consistency', sub: 'All sampled views', text: '', layers: [], slot: { side: 'left', top: 0 }, focus: 'none' },
 ];
 const LAYER_NAME: Record<Layer, string> = { rgb: 'RGB', depth: 'Depth', mask: 'Anchor' };
@@ -90,7 +90,7 @@ export default function EvaluationTeaser() {
     // leader lines from each card edge to its checkpoint
     const leadG = $<SVGGElement>('.tz-leads'); leadG.innerHTML = '';
     nodes.slice(0, 5).forEach(n => {
-      const card = n.slot.side === 'left' ? 28 + CARD_W : STAGE_W - 28 - CARD_W, cy = n.slot.top + 90;
+      const card = n.slot.side === 'left' ? 28 + CARD_W : STAGE_W - 28 - CARD_W, cy = n.slot.top + 105;
       const [nx, ny] = n.xy, sg = n.slot.side === 'left' ? 1 : -1;
       n.lead = svgEl('path', { class: 'tz-lead', d: `M${card} ${cy} C${card + sg * 120} ${cy} ${nx - sg * 110} ${ny} ${nx} ${ny}`, stroke: n.color, pathLength: 1 }, leadG);
     });

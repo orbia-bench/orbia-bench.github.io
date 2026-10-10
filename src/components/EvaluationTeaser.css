@@ -67,7 +67,7 @@
 .tz-stage.s3d .tz-dim { opacity: 0; }
 
 /* Checkpoint cards: tilted towards the scene, floating over it */
-.tz-card { position: absolute; width: 17.5cqw; border-radius: 1cqw; background: #fff; overflow: hidden; cursor: pointer; z-index: 3;
+.tz-card { position: absolute; width: 21cqw; border-radius: 1cqw; background: #fff; overflow: hidden; cursor: pointer; z-index: 3;
   --tilt: 9deg; transform-origin: 0 50%;
   box-shadow: 0 2.4cqw 3.6cqw -2cqw rgba(12,26,34,.55), 0 .6cqw 1.2cqw -.6cqw rgba(12,26,34,.3);
   opacity: 0; pointer-events: none; transform: perspective(70cqw) rotateY(var(--tilt)) translateY(1.2cqw) scale(.94);
@@ -75,7 +75,7 @@
 .tz-card-right { --tilt: -9deg; transform-origin: 100% 50%; }
 .tz-card.on { opacity: 1; pointer-events: auto; transform: perspective(70cqw) rotateY(var(--tilt));
   box-shadow: 0 0 0 .18cqw var(--c), 0 2.6cqw 4cqw -2cqw rgba(12,26,34,.6), 0 .6cqw 1.2cqw -.6cqw rgba(12,26,34,.3); }
-.tz-card.seen { opacity: .92; pointer-events: auto; transform: perspective(70cqw) rotateY(var(--tilt)) scale(.62); }
+.tz-card.seen { opacity: .92; pointer-events: auto; transform: perspective(70cqw) rotateY(var(--tilt)) scale(.58); }
 .tz-card-left.seen { transform-origin: 0 0; }
 .tz-card-right.seen { transform-origin: 100% 0; }
 .tz-card.seen .tz-body, .tz-card.seen .tz-layers { display: none; }
@@ -92,16 +92,16 @@
 .tz-mask { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; background: #ffd25c;
   -webkit-mask: var(--m) center / 100% 100% no-repeat; mask: var(--m) center / 100% 100% no-repeat; filter: drop-shadow(0 0 6px rgba(255,200,70,.9)); }
 .tz-card[data-layer="mask"] .tz-mask { opacity: .78; }
-.tz-label { position: absolute; left: .7cqw; top: .7cqw; background: var(--c); color: #fff; font: 700 1cqw/1 var(--sans); padding: .42cqw .62cqw; border-radius: .45cqw;
+.tz-label { position: absolute; left: .7cqw; top: .7cqw; background: var(--c); color: #fff; font: 700 1.15cqw/1 var(--sans); padding: .45cqw .68cqw; border-radius: .45cqw;
   box-shadow: 0 .3cqw .8cqw rgba(0,0,0,.25); }
 .tz-label sub, .tz-body sub, .tz-step sub { font-size: .72em; font-style: normal; }
 .tz-layers { position: absolute; left: .7cqw; bottom: .7cqw; display: flex; gap: .15cqw; padding: .2cqw; border-radius: 99px;
   background: rgba(14,22,28,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-.tz-layer { border: 0; border-radius: 99px; background: transparent; color: rgba(255,255,255,.75); font: 600 .78cqw/1 var(--sans); padding: .38cqw .65cqw; transition: background .3s, color .3s; }
+.tz-layer { border: 0; border-radius: 99px; background: transparent; color: rgba(255,255,255,.75); font: 600 .9cqw/1 var(--sans); padding: .42cqw .72cqw; transition: background .3s, color .3s; }
 .tz-layer[aria-pressed="true"] { background: #fff; color: var(--tz-ink); }
-.tz-body { padding: .8cqw .95cqw .95cqw; }
-.tz-body b { display: block; font: 700 .78cqw/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--c); margin-bottom: .35cqw; }
-.tz-body p { margin: 0; font-size: .95cqw; line-height: 1.45; color: var(--ink-2); }
+.tz-body { padding: .9cqw 1.1cqw 1.1cqw; }
+.tz-body b { display: block; font: 700 .88cqw/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--c); margin-bottom: .4cqw; }
+.tz-body p { margin: 0; font-size: 1.1cqw; line-height: 1.45; color: var(--ink-2); }
 
 /* 3D self-consistency: light frosted panels in the Dimension-3 blue, the route stays visible */
 .tz-world { inset: 0; width: auto; background: none; box-shadow: none !important; transform: none !important; cursor: default; pointer-events: none !important; z-index: 4; }

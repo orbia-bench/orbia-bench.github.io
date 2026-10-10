@@ -131,3 +131,12 @@
 .bm-stage-tabs .bm-stage-description{font-size:12.5px}
 @media(max-width:800px){.bm-stage-tabs{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.bm-stage-tabs{grid-template-columns:1fr}}
+/* Wide screens: canvas sized to the viewport, steps stacked beside it */
+@media(min-width:1000px){.bm-pipeline .cp-canvas{width:min(100%,calc((100svh - 190px) * 893 / 555));justify-self:center}.bm-stage-tabs{width:min(100%,calc((100svh - 190px) * 893 / 555));justify-self:center}}
+@media(min-width:1200px){
+.bm-pipeline:not(.bm-pipeline-overview){grid-template-columns:min(calc(100% - 318px),calc((100svh - 190px) * 893 / 555)) 300px!important;justify-content:center;gap:18px}
+.bm-pipeline:not(.bm-pipeline-overview) .cp-canvas,.bm-pipeline:not(.bm-pipeline-overview) .bm-stage-tabs{width:100%;justify-self:stretch}
+.bm-pipeline:not(.bm-pipeline-overview) .bm-stage-tabs{grid-template-columns:1fr;grid-template-rows:repeat(4,1fr);gap:10px}
+.bm-pipeline:not(.bm-pipeline-overview) .bm-stage-tabs button{display:flex;align-items:flex-start;padding:16px 18px}
+.bm-pipeline:not(.bm-pipeline-overview) .bm-stage-tabs .bm-stage-description{font-size:13px;line-height:1.5}
+}
