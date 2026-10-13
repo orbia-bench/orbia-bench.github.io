@@ -117,7 +117,7 @@ export default function OverviewStats({ rows = [] }: { rows?: Row[] }) {
               <svg viewBox="0 0 40 12" aria-hidden="true"><path d="M2 6 H34 M30 2 L36 6 L30 10" /></svg>
               <div><b className="ov-kept"><Count to={e.to} run={open === 'cases'} /></b><span>{e.toUnit}</span></div>
             </div>)}
-            <div className="ov-hours"><b>300+</b><span>hours of annotation and manual curation, with 856 verified anchors</span></div>
+            <div className="ov-hours"><b>300+</b><span>hours of annotation and manual curation, with 859 verified anchors</span></div>
           </section>
         </div>}
         {open === 'models' && <div className="ov-models" key="models">
