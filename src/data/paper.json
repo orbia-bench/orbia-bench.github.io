@@ -115,7 +115,7 @@
       "corresponding": false
     },
     {
-      "name": "Alan Liang",
+      "name": "Ao Liang",
       "affiliations": [
         1
       ],
@@ -224,5 +224,5 @@
   "datasetUrl": "https://huggingface.co/datasets/Orbia/Orbia",
   "paperPath": "paper/orbia.pdf",
   "codeUrl": "https://github.com/worldbench/orbia",
-  "bibtex": "@misc{lu_orbia,\n  title = {Orbia: Do Generated Videos Form a Consistent 3D World?},\n  author = {Dongyue Lu and Guian Fang and Hur Lim and Yonggang Wu and Yanrong Wang and Hongshan Chen and Shengju Qian and Yue Liao and Wei Chow and Lingdong Kong and Tianxin Huang and Yu Yang and Hongji Yang and Junchao Huang and Alan Liang and Yihao Wang and Zihan Wang and Rong Li and Hanlin Chen and Xin Wang and Wei Tsang Ooi and Mike Zheng Shou and Shuicheng Yan},\n  note = {ORBIA benchmark manuscript}\n}"
+  "bibtex": "@misc{lu_orbia,\n  title = {Orbia: Do Generated Videos Form a Consistent 3D World?},\n  author = {Dongyue Lu and Guian Fang and Hur Lim and Yonggang Wu and Yanrong Wang and Hongshan Chen and Shengju Qian and Yue Liao and Wei Chow and Lingdong Kong and Tianxin Huang and Yu Yang and Hongji Yang and Junchao Huang and Ao Liang and Yihao Wang and Zihan Wang and Rong Li and Hanlin Chen and Xin Wang and Wei Tsang Ooi and Mike Zheng Shou and Shuicheng Yan},\n  note = {ORBIA benchmark manuscript}\n}"
 }
