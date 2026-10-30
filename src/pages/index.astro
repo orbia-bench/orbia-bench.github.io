@@ -30,7 +30,7 @@ const authorSchema = paper.authors.map(author => ({
 const articleSchema = { '@context': 'https://schema.org', '@type': 'ScholarlyArticle', '@id': articleId, url: pageUrl, headline: paper.title, abstract: paper.abstract, author: authorSchema, about: ['World models', '3D consistency', 'Video generation'], associatedMedia: { '@type': 'MediaObject', encodingFormat: 'application/pdf', contentUrl: paper.paperUrl }, isBasedOn: { '@type': 'Dataset', '@id': paper.datasetUrl, name: 'ORBIA', url: paper.datasetUrl } };
 const datasetSchema = { '@context': 'https://schema.org', '@type': 'Dataset', '@id': paper.datasetUrl, name: 'ORBIA', description: '720 exploration-and-revisit cases for evaluating 3D consistency in world models and video generators, spanning six trajectory protocols.', url: paper.datasetUrl, creator: authorSchema, isBasedOn: { '@id': articleId }, keywords: ['3D consistency', 'World models', 'Benchmark', 'Video generation'] };
 const findings = [
-  { title: 'Performance varies across evaluation tiers', body: 'SolarWM-H3 leads overall, but no model leads every tier.' },
+  { title: 'Performance varies across evaluation tiers', body: 'No model leads every tier.' },
   { title: 'Visual quality and 3D consistency', body: 'Beautiful frames can still describe an inconsistent 3D world.' },
   { title: 'Camera control and geometric consistency', body: 'Following the camera path and maintaining coherent geometry are distinct abilities.' },
   { title: 'Preserving input and generated content', body: 'Recovering the starting scene does not guarantee remembering newly generated content.' },
@@ -45,7 +45,7 @@ const findings = [
     <meta name="theme-color" content="#0c1418" />
     <link rel="icon" type="image/svg+xml" href={favicon} />
     <title>{paper.title}</title>
-    <meta name="description" content="Can generated worlds stay consistent as we explore and revisit them? ORBIA evaluates 27 models with 720 cases, six exploration protocols, and three dimensions of 3D consistency." />
+    <meta name="description" content="Can generated worlds stay consistent as we explore and revisit them? ORBIA evaluates world models with 720 cases, six exploration protocols, and three dimensions of 3D consistency." />
     <meta name="citation_title" content={paper.title} />
     {paper.authors.map(author => <meta name="citation_author" content={author.name} />)}
     <meta name="citation_pdf_url" content={paper.paperUrl} />
@@ -112,7 +112,7 @@ const findings = [
           <div class="content-width">
             <div class="head-row reveal">
               <div><h2>Leaderboard</h2></div>
-              <p>Results for 27 models across control, visual quality, three dimensions of 3D consistency, and temporal stability.</p>
+              <p>Results across control, visual quality, three dimensions of 3D consistency, and temporal stability.</p>
             </div>
             <Leaderboard rows={leaderboardRows} client:visible />
           </div>

@@ -25,7 +25,7 @@ const EFFORT = [
   { label: 'Self-recorded', from: 85, fromUnit: 'videos recorded', to: 60, toUnit: 'cases kept' },
 ];
 
-const ORG: Record<string, string> = { 'SolarWM-H3': 'cuhksz', Lyra2: 'nvidia', EVOKE: 'alaya', 'Echo-WM': 'jd', Gen3C: 'nvidia', 'Matrix game 3.5': 'skywork', AlayaWorld: 'alaya',
+const ORG: Record<string, string> = { 'WorldCrafter-Fast': 'tencent', 'SolarWM-H3': 'cuhksz', Lyra2: 'nvidia', EVOKE: 'alaya', 'Echo-WM': 'jd', Gen3C: 'nvidia', 'Matrix game 3.5': 'skywork', AlayaWorld: 'alaya',
   'LingBot-World v2': 'robbyant', 'HY-WorldPlay': 'tencent', 'SANA-WM': 'nvidia', Voyager: 'tencent', 'LingBot-World v1': 'robbyant', 'Cosmos3-Nano': 'nvidia', 'DreamX-World': 'amap',
   FantasyWorld: 'amap', Astra: 'tsinghua', 'ABot-World': 'amap', Genie3: 'deepmind', HappyOyster: 'alibaba', 'Seedance2.5': 'bytedance', 'Kling3.0': 'kuaishou', 'Cosmos3-Super': 'nvidia',
   'HunyuanVideo1.5': 'tencent', 'MiniMax-H3': 'minimax', 'LTX2.5': 'lightricks', 'Wan2.7': 'alibaba', LongCat: 'meituan' };
@@ -91,7 +91,7 @@ export default function OverviewStats({ rows = [] }: { rows?: Row[] }) {
       </button>
       <a className="ov-card" href="#protocols"><strong>6</strong><span>Trajectory protocols</span><small>Explore · Revisit · Return</small><em>See protocols</em></a>
       <button type="button" className="ov-card ov-more" aria-expanded={open === 'models'} aria-controls="ov-panel" onClick={() => toggle('models')}>
-        <strong>27</strong><span>Evaluated models</span><small>Camera, action and text interfaces</small><em>How each model runs</em>
+        <strong>{rows.length}</strong><span>Evaluated models</span><small>Camera, action and text interfaces</small><em>How each model runs</em>
       </button>
       <button type="button" className="ov-card ov-more" aria-expanded={open === 'dims'} aria-controls="ov-panel" onClick={() => toggle('dims')}>
         <strong>6</strong><span>Evaluation dimensions</span><small>Three for 3D consistency</small><em>All metrics</em>

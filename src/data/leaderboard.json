@@ -1,5 +1,23 @@
 [
   {
+    "id": "worldcrafter-fast",
+    "name": "WorldCrafter-Fast",
+    "group": "world",
+    "interface": "Camera",
+    "size": "--",
+    "steps": "6",
+    "representation": false,
+    "scores": [
+      85.79,
+      73.26,
+      78.21,
+      84.77,
+      70.72,
+      86.85
+    ],
+    "overall": 80.5
+  },
+  {
     "id": "solarwm-h3-ema-step-003900",
     "name": "SolarWM-H3",
     "group": "world",
