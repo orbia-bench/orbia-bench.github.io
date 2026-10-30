@@ -25,7 +25,7 @@ const EFFORT = [
   { label: 'Self-recorded', from: 85, fromUnit: 'videos recorded', to: 60, toUnit: 'cases kept' },
 ];
 
-const ORG: Record<string, string> = { 'WorldCrafter-Fast': 'tencent', 'SolarWM-H3': 'cuhksz', Lyra2: 'nvidia', EVOKE: 'alaya', 'Echo-WM': 'jd', Gen3C: 'nvidia', 'Matrix game 3.5': 'skywork', AlayaWorld: 'alaya',
+const ORG: Record<string, string> = { 'WorldCrafter-Fast': 'tencent', 'SolarWM-H3': 'solarx', Lyra2: 'nvidia', EVOKE: 'alaya', 'Echo-WM': 'jd', Gen3C: 'nvidia', 'Matrix game 3.5': 'skywork', AlayaWorld: 'alaya',
   'LingBot-World v2': 'robbyant', 'HY-WorldPlay': 'tencent', 'SANA-WM': 'nvidia', Voyager: 'tencent', 'LingBot-World v1': 'robbyant', 'Cosmos3-Nano': 'nvidia', 'DreamX-World': 'amap',
   FantasyWorld: 'amap', Astra: 'tsinghua', 'ABot-World': 'amap', Genie3: 'deepmind', HappyOyster: 'alibaba', 'Seedance2.5': 'bytedance', 'Kling3.0': 'kuaishou', 'Cosmos3-Super': 'nvidia',
   'HunyuanVideo1.5': 'tencent', 'MiniMax-H3': 'minimax', 'LTX2.5': 'lightricks', 'Wan2.7': 'alibaba', LongCat: 'meituan' };
